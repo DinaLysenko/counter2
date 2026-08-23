@@ -88,14 +88,37 @@
     cursor: not-allowed;
 }
 
-.valueInput {
+.settingsSection {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
+
 .text{
     color: #5bd5f8;
     font-size: 30px;
     font-weight: bold;
     margin-right: 15px;
+}
+.inputGroup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.inputValue {
+    width: 160px;
+    height: 42px;
+    background-color: #ffffff;
+    border: 3px solid #51c4ec;
+    border-radius: 6px;
+    color: #000000;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    outline: none;
+    box-sizing: border-box;
+}
+.inputError {
+    background-color: #f44336;
+    border: 3px solid #f44336;
 }

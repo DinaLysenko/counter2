@@ -1,6 +1,6 @@
 type Props = {
-    counter: number
-    maxCount: number
+    counter: string
+    maxCount: string
 }
 export const CounterDisplay = ({counter, maxCount}: Props) => {
     return (

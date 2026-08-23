@@ -1,9 +1,9 @@
 import {Button} from './Button.tsx';
 
 type Props = {
-    setCounter: (counter: number) => void
-    counter: number;
-    maxCount: number;
+    setCounter: (counter: string) => void
+    counter: string;
+    maxCount: string;
 }
 
 export const ButtonPanel = ({setCounter, counter, maxCount}: Props) => {
@@ -11,7 +11,7 @@ export const ButtonPanel = ({setCounter, counter, maxCount}: Props) => {
         setCounter(counter + 1);
     }
     const onResetHandler = () => {
-        setCounter(0)
+        setCounter('0')
     }
     return (
         <div className={'buttonPanel'}>
