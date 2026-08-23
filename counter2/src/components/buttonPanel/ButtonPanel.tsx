@@ -16,7 +16,7 @@ export const ButtonPanel = ({setCounter, counter, maxCount}: Props) => {
     return (
         <div className={'buttonPanel'}>
             <Button title={'inc'} onClick={onIncHandler} disabled={counter === maxCount } />
-            <Button title={'reset'} onClick={onResetHandler} disabled={counter === 0 }/>
+            <Button title={'reset'} onClick={onResetHandler} />
         </div>
     )
 }

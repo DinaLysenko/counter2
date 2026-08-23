@@ -1,7 +1,7 @@
 type Props = {
     title: string
     onClick: () => void,
-    disabled: boolean
+    disabled?: boolean
 }
 export const Button = ({title, onClick, disabled}: Props) => {
     return (
