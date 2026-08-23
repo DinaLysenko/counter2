@@ -1,9 +1,9 @@
 type Props={
-    htmlFor:string,
+
     title:string,
 }
-export const LabelForInputValue =({htmlFor, title}:Props)=>{
+export const LabelForInputValue =({ title}:Props)=>{
     return (
-        <label htmlFor={htmlFor}>{title}</label>
+        <label  className='text'>{title}:</label>
     )
 }

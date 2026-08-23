@@ -87,3 +87,15 @@
     color: #5d7585;
     cursor: not-allowed;
 }
+
+.valueInput {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.text{
+    color: #5bd5f8;
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 15px;
+}
