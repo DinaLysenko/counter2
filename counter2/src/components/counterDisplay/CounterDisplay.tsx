@@ -1,11 +1,14 @@
 type Props = {
-    counter: string
-    maxCount: string
+    countMaxValue: string
+    countStartValue: string
 }
-export const CounterDisplay = ({counter, maxCount}: Props) => {
+export const CounterDisplay = ({countMaxValue, countStartValue}: Props) => {
+    const countText = 'enter value and press \'set\''
     return (
         <div className={'display'}>
-            <div className={counter === maxCount ? 'countTextMax' : 'countText'}>{counter}</div>
+
+            <div
+                className={countStartValue === '' ? 'countText' : 'count'}>{countStartValue !== '' ? countStartValue : countText}</div>
         </div>
     )
 }

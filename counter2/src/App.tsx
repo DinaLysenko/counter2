@@ -7,22 +7,41 @@ import {ButtonPanel} from './components/buttonPanel/ButtonPanel.tsx';
 
 
 function App() {
-    const [startValue, setStartValue] = useState('0');
-    const [maxValue, setMaxValue] = useState('5');
+    const [inputStartValue, setInputStartValue] = useState('0');
+    const [inputMaxValue, setInputMaxValue] = useState('5');
+
+    const [countStartValue, setCountStartValue] = useState('');
+    const [countMaxValue, setCountMaxValue] = useState('');
+
 
     return (
         <div className="wrapper">
             <div className={'counterCard'}>
-                <InputSettingDisplay startValue={startValue}
-                                     setStartValue={setStartValue}
-                                     maxValue={maxValue}
-                                     setMaxValue={setMaxValue}
+                <InputSettingDisplay
+                    inputStartValue={inputStartValue}
+                    inputMaxValue={inputMaxValue}
+                    setInputStartValue={setInputStartValue}
+                    setInputMaxValue={setInputMaxValue}
+
                 />
-                <SettingButtonPanel/>
+                <SettingButtonPanel inputStartValue={inputStartValue}
+                                    inputMaxValue={inputMaxValue}
+                                    setCountStartValue={setCountStartValue}
+                                    setCountMaxValue={setCountMaxValue}
+
+                />
             </div>
             <div className={'counterCard'}>
-                <CounterDisplay counter={startValue} maxCount={maxValue}/>
-                <ButtonPanel setCounter={setStartValue} counter={startValue} maxCount={maxValue}/>
+                <CounterDisplay countStartValue={countStartValue}
+                                countMaxValue={countMaxValue}
+                />
+                <ButtonPanel countStartValue={countStartValue}
+                             countMaxValue={countMaxValue}
+                             setCountStartValue={setCountStartValue}
+                             inputMaxValue={inputMaxValue}
+                             setCountMaxValue={setCountMaxValue}
+                             inputStartValue={inputStartValue}
+                />
             </div>
         </div>
     )

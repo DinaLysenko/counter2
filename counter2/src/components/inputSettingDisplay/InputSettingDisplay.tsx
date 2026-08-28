@@ -2,23 +2,23 @@ import {LabelForInputValue} from './LabelForInputValue.tsx';
 import {Input} from './Input.tsx';
 
 
-type Props={
-    maxValue: string
-    setMaxValue: (maxValue: string) => void
-    startValue: string
-    setStartValue: (startValue: string) => void
+type Props = {
+    inputStartValue: string
+    inputMaxValue: string
+    setInputStartValue: (inputStartValue: string) => void
+    setInputMaxValue: (inputMaxValue: string) => void
 }
-export const InputSettingDisplay = ({maxValue, setStartValue, startValue, setMaxValue}:Props) => {
+export const InputSettingDisplay = ({inputStartValue, inputMaxValue, setInputStartValue, setInputMaxValue}: Props) => {
     return (
         <div className={'display'}>
-            <div className='settingsSection'>
+            <div className="settingsSection">
                 <div className="inputGroup">
                     <LabelForInputValue title="max value"/>
-                    <Input value={maxValue} setValue={setMaxValue}/>
+                    <Input value={inputMaxValue} setValue={setInputMaxValue}/>
                 </div>
                 <div className="inputGroup">
                     <LabelForInputValue title="start value"/>
-                    <Input value={startValue} setValue={setStartValue}/>
+                    <Input value={inputStartValue} setValue={setInputStartValue}/>
                 </div>
             </div>
         </div>
