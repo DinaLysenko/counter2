@@ -4,6 +4,6 @@ type Props={
 }
 export const LabelForInputValue =({ title}:Props)=>{
     return (
-        <label  className='text'>{title}:</label>
+        <label  className='labelText'>{title}:</label>
     )
 }

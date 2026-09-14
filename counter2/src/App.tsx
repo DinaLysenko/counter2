@@ -1,9 +1,8 @@
 import './App.css'
-import {SettingButtonPanel} from './components/settingButtonPanel/SettingButtonPanel.tsx';
 import {useState} from 'react';
 import {InputSettingDisplay} from './components/inputSettingDisplay/InputSettingDisplay.tsx';
 import {CounterDisplay} from './components/counterDisplay/CounterDisplay.tsx';
-import {ButtonPanel} from './components/buttonPanel/ButtonPanel.tsx';
+import {Button} from './components/button/Button.tsx';
 
 
 function App() {
@@ -13,7 +12,14 @@ function App() {
     const [countStartValue, setCountStartValue] = useState('');
     const [countMaxValue, setCountMaxValue] = useState('');
 
+    const [error, setError] = useState<null | string>(null);
 
+    const incrementOnHandler = () => {
+        setCountStartValue((+countStartValue + 1).toString())
+    }
+    const resetOnHandler = () => {
+        setCountStartValue(inputStartValue)
+    }
     return (
         <div className="wrapper">
             <div className={'counterCard'}>
@@ -22,26 +28,31 @@ function App() {
                     inputMaxValue={inputMaxValue}
                     setInputStartValue={setInputStartValue}
                     setInputMaxValue={setInputMaxValue}
-
+                    setError={setError}
+                    error={error}
                 />
-                <SettingButtonPanel inputStartValue={inputStartValue}
-                                    inputMaxValue={inputMaxValue}
-                                    setCountStartValue={setCountStartValue}
-                                    setCountMaxValue={setCountMaxValue}
 
-                />
+                <div className="buttonPanel">
+                    <Button title="set" onClick={() => {
+                        setCountStartValue(inputStartValue);
+                        setCountMaxValue(inputMaxValue)
+                    }}
+
+                    />
+                </div>
             </div>
             <div className={'counterCard'}>
                 <CounterDisplay countStartValue={countStartValue}
                                 countMaxValue={countMaxValue}
+                                inputStartValue={inputStartValue}
+                                inputMaxValue={inputMaxValue}
                 />
-                <ButtonPanel countStartValue={countStartValue}
-                             countMaxValue={countMaxValue}
-                             setCountStartValue={setCountStartValue}
-                             inputMaxValue={inputMaxValue}
-                             setCountMaxValue={setCountMaxValue}
-                             inputStartValue={inputStartValue}
-                />
+
+                <div className={'buttonPanel'}>
+                    <Button title={'inc'} onClick={incrementOnHandler}
+                            disabled={countStartValue === '' || countStartValue === inputMaxValue}/>
+                    <Button title={'reset'} onClick={resetOnHandler} disabled={countMaxValue === ''}/>
+                </div>
             </div>
         </div>
     )
