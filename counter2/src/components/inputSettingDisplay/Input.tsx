@@ -3,16 +3,15 @@ import type {ChangeEvent} from 'react';
 type Props = {
     value: string
     setValue: (value: string) => void
-    setError: (error: string) => void
-    error: string|null
+    setCountStartValue: (countStartValue: string) => void
+    error: boolean
 }
-export const Input = ({value, setValue, setError, error}: Props) => {
-const onChangeHandler=(e: ChangeEvent<HTMLInputElement, HTMLInputElement>)=>{
-    setValue(e.currentTarget.value)
-    if (+e.target.value<0) {
-        setError('Incorrect value')
+export const Input = ({value, setValue, setCountStartValue, error}: Props) => {
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement, HTMLInputElement>) => {
+        setValue(e.currentTarget.value)
+        setCountStartValue('')
     }
-}
+
     return (
         <input value={value}
                type="number"

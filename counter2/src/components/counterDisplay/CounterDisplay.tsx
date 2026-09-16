@@ -1,17 +1,19 @@
 type Props = {
     countMaxValue: string
     countStartValue: string
-    inputStartValue: string
-    inputMaxValue: string
+    error: boolean
 }
-export const CounterDisplay = ({countMaxValue, countStartValue, inputMaxValue, inputStartValue}: Props) => {
+export const CounterDisplay = ({countMaxValue, countStartValue, error}: Props) => {
     const countTitle = 'enter value and press \'set\''
-    const counterStyle = countStartValue === '' ? 'countText' : countStartValue === countMaxValue ? 'countMax' : 'count'
+    const counterStyle = error ? 'errorCount' : countStartValue === '' ? 'countText' : countStartValue === countMaxValue ? 'countMax' : 'count'
+
     return (
         <div className={'display'}>
-            {
-                <div className={counterStyle}>{countStartValue !== '' ? countStartValue : countTitle}</div>
-            }
+
+            <div
+                className={counterStyle}>{error ? 'Incorrect value!' : countStartValue !== '' ? countStartValue : countTitle}
+            </div>
+
 
         </div>
     )

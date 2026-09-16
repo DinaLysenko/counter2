@@ -11,8 +11,8 @@ function App() {
 
     const [countStartValue, setCountStartValue] = useState('');
     const [countMaxValue, setCountMaxValue] = useState('');
+    const error = inputMaxValue <= inputStartValue || +inputStartValue < 0 || +inputMaxValue < 0
 
-    const [error, setError] = useState<null | string>(null);
 
     const incrementOnHandler = () => {
         setCountStartValue((+countStartValue + 1).toString())
@@ -28,24 +28,24 @@ function App() {
                     inputMaxValue={inputMaxValue}
                     setInputStartValue={setInputStartValue}
                     setInputMaxValue={setInputMaxValue}
-                    setError={setError}
-                    error={error}
+                    setCountStartValue={setCountStartValue}
+
                 />
 
                 <div className="buttonPanel">
-                    <Button title="set" onClick={() => {
-                        setCountStartValue(inputStartValue);
-                        setCountMaxValue(inputMaxValue)
-                    }}
-
+                    <Button title="set"
+                            onClick={() => {
+                                setCountStartValue(inputStartValue);
+                                setCountMaxValue(inputMaxValue)
+                            }}
+                            disabled={error}
                     />
                 </div>
             </div>
             <div className={'counterCard'}>
                 <CounterDisplay countStartValue={countStartValue}
                                 countMaxValue={countMaxValue}
-                                inputStartValue={inputStartValue}
-                                inputMaxValue={inputMaxValue}
+                                error={error}
                 />
 
                 <div className={'buttonPanel'}>

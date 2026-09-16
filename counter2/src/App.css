@@ -49,6 +49,11 @@
 .countMax {
     color: red;
 }
+.errorCount{
+    color: red;
+    font-weight: bold;
+    font-size: 40px;
+}
 
 .countText {
     font-weight: bold;

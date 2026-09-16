@@ -7,20 +7,36 @@ type Props = {
     inputMaxValue: string
     setInputStartValue: (inputStartValue: string) => void
     setInputMaxValue: (inputMaxValue: string) => void
-    setError: (error: null|string) => void
-    error: string|null
+    setCountStartValue: (countStartValue: string) => void
+
 }
-export const InputSettingDisplay = ({inputStartValue, inputMaxValue, setInputStartValue, setInputMaxValue, setError, error}: Props) => {
+export const InputSettingDisplay = ({
+                                        inputStartValue,
+                                        inputMaxValue,
+                                        setInputStartValue,
+                                        setInputMaxValue,
+                                        setCountStartValue,
+
+                                    }: Props) => {
+    const maxInputError = inputMaxValue < inputStartValue || inputMaxValue === inputStartValue
+    const startInputError = +inputStartValue < 0 || inputMaxValue === inputStartValue
     return (
         <div className={'display'}>
             <div className="settingsSection">
                 <div className="inputGroup">
                     <LabelForInputValue title="max value"/>
-                    <Input value={inputMaxValue} setValue={setInputMaxValue} setError={setError} error={error}/>
+                    <Input value={inputMaxValue}
+                           setValue={setInputMaxValue}
+                           setCountStartValue={setCountStartValue}
+                           error={maxInputError}/>
                 </div>
                 <div className="inputGroup">
                     <LabelForInputValue title="start value"/>
-                    <Input value={inputStartValue} setValue={setInputStartValue} setError={setError} error={error}/>
+                    <Input value={inputStartValue}
+                           setValue={setInputStartValue}
+                           setCountStartValue={setCountStartValue}
+                           error={startInputError}
+                    />
                 </div>
             </div>
         </div>
