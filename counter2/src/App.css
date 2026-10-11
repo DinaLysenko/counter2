@@ -17,7 +17,7 @@
     background-color: #22252e;
     border: 2px solid #5bd5f8;
     border-radius: 8px;
-    width: 400px;
+    width: 500px;
     height: 300px;
     margin-right: 50px;
 }
@@ -77,7 +77,7 @@
 /* Кнопка: базовые размеры и типографика */
 .button,
 .buttonDisabled {
-    width: 160px;
+    width: 140px;
     height: 60px;
     padding: 8px 20px;
     font-size: 40px;

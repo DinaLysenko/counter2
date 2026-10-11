@@ -4,7 +4,7 @@ type Props = {
     inputMaxValue: string
 }
 export const CounterDisplay = ({ countStartValue, error, inputMaxValue}: Props) => {
-    const countTitle = 'enter value and press \'set\''
+    const countTitle = 'press \'set\' and enter value'
     const counterStyle = error ? 'errorCount' : countStartValue === '' ? 'countText' : countStartValue === inputMaxValue ? 'countMax' : ''
 
     return (
